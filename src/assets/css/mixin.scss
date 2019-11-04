@@ -15,6 +15,63 @@ $color6: #fff600;
 }
 //扩大点击
 @mixin extend-click {
+  $color6: #fff600;
+  $darkColor: rgb(92, 141, 255);
+  $lightColor: #5cafff;
+  $color: #4ca1f5;
+  // 不换行
+  @mixin nowrap {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  //多少行
+  @mixin numWrap($num) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical !important;
+  }
+  //扩大点击
+  @mixin extend-click {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+    }
+  }
+  //清除浮动
+  @mixin clearfix {
+    display: block;
+    &:after {
+      display: block;
+      content: ".";
+      height: 0;
+      line-height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  @mixin scrollY {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &:-webkit-scrollbar {
+      display: none;
+    }
+  }
+  @mixin scrollX {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    &:-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   position: relative;
   &:before {
     content: "";
